@@ -66,7 +66,7 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
         </div>
       </CardContent>
       <CardFooter className="p-4 grid grid-cols-3 gap-2 bg-secondary/30">
-        <Button variant="outline" size="sm" asChild>
+        <Button variant="default" size="sm" asChild>
           <Link href={`/employee/${user.id}`} className="flex items-center gap-1">
             <Eye size={16} /> View
           </Link>
@@ -75,10 +75,13 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
           {bookmarked ? <Trash2 size={16} /> : <Bookmark size={16} />}
           {bookmarked ? "Remove" : "Bookmark"}
         </Button>
-        <Button variant="default" size="sm" onClick={handlePromote} className="flex items-center gap-1 bg-accent text-accent-foreground hover:bg-accent/90">
+        <Button variant="secondary" size="sm" onClick={handlePromote} className="flex items-center gap-1">
           <TrendingUp size={16} /> Promote
         </Button>
       </CardFooter>
     </Card>
   );
 }
+
+
+    

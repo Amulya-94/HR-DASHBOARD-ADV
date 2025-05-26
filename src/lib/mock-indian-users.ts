@@ -19,7 +19,7 @@ export const indianUsers: User[] = [
     lastName: "Sharma",
     email: "aarav.sharma@example.com",
     age: 28,
-    image: "https://placehold.co/128x128.png?text=AS",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[0], // Engineering
     performanceRating: 4,
     address: { address: "123 MG Road", city: "Mumbai", postalCode: "400001", state: "Maharashtra" },
@@ -35,7 +35,7 @@ export const indianUsers: User[] = [
     lastName: "Patel",
     email: "priya.patel@example.com",
     age: 32,
-    image: "https://placehold.co/128x128.png?text=PP",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[1], // Marketing
     performanceRating: 5,
     address: { address: "456 Park Street", city: "Delhi", postalCode: "110001", state: "Delhi" },
@@ -51,7 +51,7 @@ export const indianUsers: User[] = [
     lastName: "Mehra",
     email: "rohan.mehra@example.com",
     age: 30,
-    image: "https://placehold.co/128x128.png?text=RM",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[2], // Sales
     performanceRating: 3,
     address: { address: "789 Residency Road", city: "Bangalore", postalCode: "560001", state: "Karnataka" },
@@ -67,7 +67,7 @@ export const indianUsers: User[] = [
     lastName: "Singh",
     email: "ananya.singh@example.com",
     age: 25,
-    image: "https://placehold.co/128x128.png?text=AS",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[3], // HR
     performanceRating: 4,
     address: { address: "101 Lake View", city: "Hyderabad", postalCode: "500001", state: "Telangana" },
@@ -83,7 +83,7 @@ export const indianUsers: User[] = [
     lastName: "Reddy",
     email: "vikram.reddy@example.com",
     age: 35,
-    image: "https://placehold.co/128x128.png?text=VR",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[4], // Product
     performanceRating: 5,
     address: { address: "202 River Side", city: "Chennai", postalCode: "600001", state: "Tamil Nadu" },
@@ -99,7 +99,7 @@ export const indianUsers: User[] = [
     lastName: "Gupta",
     email: "sanya.gupta@example.com",
     age: 29,
-    image: "https://placehold.co/128x128.png?text=SG",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[5], // Design
     performanceRating: 4,
     address: { address: "303 Hill Top", city: "Pune", postalCode: "411001", state: "Maharashtra" },
@@ -115,7 +115,7 @@ export const indianUsers: User[] = [
     lastName: "Nair",
     email: "aditya.nair@example.com",
     age: 31,
-    image: "https://placehold.co/128x128.png?text=AN",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[6], // Finance
     performanceRating: 3,
     address: { address: "404 Sea View", city: "Kolkata", postalCode: "700001", state: "West Bengal" },
@@ -131,7 +131,7 @@ export const indianUsers: User[] = [
     lastName: "Joshi",
     email: "diya.joshi@example.com",
     age: 27,
-    image: "https://placehold.co/128x128.png?text=DJ",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[7], // Operations
     performanceRating: 4,
     address: { address: "505 Garden Lane", city: "Jaipur", postalCode: "302001", state: "Rajasthan" },
@@ -147,7 +147,7 @@ export const indianUsers: User[] = [
     lastName: "Verma",
     email: "kabir.verma@example.com",
     age: 33,
-    image: "https://placehold.co/128x128.png?text=KV",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[8], // Support
     performanceRating: 5,
     address: { address: "606 Valley Road", city: "Ahmedabad", postalCode: "380001", state: "Gujarat" },
@@ -163,7 +163,7 @@ export const indianUsers: User[] = [
     lastName: "Chopra",
     email: "ishaan.chopra@example.com",
     age: 29,
-    image: "https://placehold.co/128x128.png?text=IC",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[9], // Research
     performanceRating: 4,
     address: { address: "707 Sky High Apts", city: "Gurgaon", postalCode: "122001", state: "Haryana" },
@@ -179,7 +179,7 @@ export const indianUsers: User[] = [
     lastName: "Desai",
     email: "mira.desai@example.com",
     age: 30,
-    image: "https://placehold.co/128x128.png?text=MD",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[0], // Engineering
     performanceRating: 5,
     address: { address: "808 Ocean Drive", city: "Goa", postalCode: "403001", state: "Goa" },
@@ -195,7 +195,7 @@ export const indianUsers: User[] = [
     lastName: "Kumar",
     email: "arjun.kumar@example.com",
     age: 34,
-    image: "https://placehold.co/128x128.png?text=AK",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[1], // Marketing
     performanceRating: 3,
     address: { address: "909 Pine Avenue", city: "Chandigarh", postalCode: "160001", state: "Punjab" },
@@ -211,7 +211,7 @@ export const indianUsers: User[] = [
     lastName: "Malhotra",
     email: "neha.malhotra@example.com",
     age: 26,
-    image: "https://placehold.co/128x128.png?text=NM",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[2], // Sales
     performanceRating: 4,
     address: { address: "111 Palm Grove", city: "Lucknow", postalCode: "226001", state: "Uttar Pradesh" },
@@ -227,7 +227,7 @@ export const indianUsers: User[] = [
     lastName: "Choudhary",
     email: "riya.choudhary@example.com",
     age: 28,
-    image: "https://placehold.co/128x128.png?text=RC",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[3], // HR
     performanceRating: 5,
     address: { address: "222 Maple Street", city: "Indore", postalCode: "452001", state: "Madhya Pradesh" },
@@ -243,7 +243,7 @@ export const indianUsers: User[] = [
     lastName: "Bajaj",
     email: "karan.bajaj@example.com",
     age: 36,
-    image: "https://placehold.co/128x128.png?text=KB",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[4], // Product
     performanceRating: 4,
     address: { address: "333 Oak Lane", city: "Bhopal", postalCode: "462001", state: "Madhya Pradesh" },
@@ -259,7 +259,7 @@ export const indianUsers: User[] = [
     lastName: "Menon",
     email: "siddharth.menon@example.com",
     age: 30,
-    image: "https://placehold.co/128x128.png?text=SM",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[0], // Engineering
     performanceRating: 4,
     address: { address: "12 Nehru Park", city: "Kochi", postalCode: "682001", state: "Kerala" },
@@ -275,7 +275,7 @@ export const indianUsers: User[] = [
     lastName: "Khan",
     email: "zara.khan@example.com",
     age: 27,
-    image: "https://placehold.co/128x128.png?text=ZK",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[5], // Design
     performanceRating: 5,
     address: { address: "9 Rose Garden", city: "Srinagar", postalCode: "190001", state: "Jammu and Kashmir" },
@@ -291,7 +291,7 @@ export const indianUsers: User[] = [
     lastName: "Das",
     email: "vihaan.das@example.com",
     age: 32,
-    image: "https://placehold.co/128x128.png?text=VD",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[7], // Operations
     performanceRating: 3,
     address: { address: "77 Ganges View", city: "Varanasi", postalCode: "221001", state: "Uttar Pradesh" },
@@ -307,7 +307,7 @@ export const indianUsers: User[] = [
     lastName: "Iyer",
     email: "myra.iyer@example.com",
     age: 29,
-    image: "https://placehold.co/128x128.png?text=MI",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[9], // Research
     performanceRating: 4,
     address: { address: "2 Temple Road", city: "Madurai", postalCode: "625001", state: "Tamil Nadu" },
@@ -323,7 +323,7 @@ export const indianUsers: User[] = [
     lastName: "Pillai",
     email: "advik.pillai@example.com",
     age: 31,
-    image: "https://placehold.co/128x128.png?text=AP",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[6], // Finance
     performanceRating: 5,
     address: { address: "5 Backwater Close", city: "Alappuzha", postalCode: "688001", state: "Kerala" },
@@ -339,7 +339,7 @@ export const indianUsers: User[] = [
     lastName: "Rao",
     email: "samaira.rao@example.com",
     age: 28,
-    image: "https://placehold.co/128x128.png?text=SR",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[0], // Engineering
     performanceRating: 4,
     address: { address: "Cyber Towers, Hitec City", city: "Hyderabad", postalCode: "500081", state: "Telangana" },
@@ -355,7 +355,7 @@ export const indianUsers: User[] = [
     lastName: "Chatterjee",
     email: "vivaan.chatterjee@example.com",
     age: 33,
-    image: "https://placehold.co/128x128.png?text=VC",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[1], // Marketing
     performanceRating: 3,
     address: { address: "Park Street Extn", city: "Kolkata", postalCode: "700016", state: "West Bengal" },
@@ -371,7 +371,7 @@ export const indianUsers: User[] = [
     lastName: "Subramanian",
     email: "anika.subramanian@example.com",
     age: 26,
-    image: "https://placehold.co/128x128.png?text=AS",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[4], // Product
     performanceRating: 5,
     address: { address: "OMR Road", city: "Chennai", postalCode: "600119", state: "Tamil Nadu" },
@@ -387,7 +387,7 @@ export const indianUsers: User[] = [
     lastName: "Biswas",
     email: "reyansh.biswas@example.com",
     age: 29,
-    image: "https://placehold.co/128x128.png?text=RB",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[8], // Support
     performanceRating: 4,
     address: { address: "Salt Lake Sector V", city: "Kolkata", postalCode: "700091", state: "West Bengal" },
@@ -403,7 +403,7 @@ export const indianUsers: User[] = [
     lastName: "Dubey",
     email: "kiara.dubey@example.com",
     age: 30,
-    image: "https://placehold.co/128x128.png?text=KD",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[3], // HR
     performanceRating: 4,
     address: { address: "Film City Road", city: "Mumbai", postalCode: "400065", state: "Maharashtra" },
@@ -419,7 +419,7 @@ export const indianUsers: User[] = [
     lastName: "Kapoor",
     email: "dev.kapoor@example.com",
     age: 40,
-    image: "https://placehold.co/128x128.png?text=DK",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[0], // Engineering
     performanceRating: 5,
     address: { address: "Bandra West", city: "Mumbai", postalCode: "400050", state: "Maharashtra" },
@@ -435,7 +435,7 @@ export const indianUsers: User[] = [
     lastName: "Mittal",
     email: "navya.mittal@example.com",
     age: 24,
-    image: "https://placehold.co/128x128.png?text=NM",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[1], // Marketing
     performanceRating: 4,
     address: { address: "Connaught Place", city: "Delhi", postalCode: "110001", state: "Delhi" },
@@ -451,7 +451,7 @@ export const indianUsers: User[] = [
     lastName: "Saxena",
     email: "parth.saxena@example.com",
     age: 31,
-    image: "https://placehold.co/128x128.png?text=PS",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[2], // Sales
     performanceRating: 3,
     address: { address: "Electronic City", city: "Bangalore", postalCode: "560100", state: "Karnataka" },
@@ -467,7 +467,7 @@ export const indianUsers: User[] = [
     lastName: "Agarwal",
     email: "saanvi.agarwal@example.com",
     age: 35,
-    image: "https://placehold.co/128x128.png?text=SA",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[6], // Finance
     performanceRating: 5,
     address: { address: "Nariman Point", city: "Mumbai", postalCode: "400021", state: "Maharashtra" },
@@ -483,7 +483,7 @@ export const indianUsers: User[] = [
     lastName: "Trivedi",
     email: "yash.trivedi@example.com",
     age: 29,
-    image: "https://placehold.co/128x128.png?text=YT",
+    image: "https://placehold.co/128x128.png",
     department: DEPARTMENTS[7], // Operations
     performanceRating: 4,
     address: { address: "SG Highway", city: "Ahmedabad", postalCode: "380054", state: "Gujarat" },
@@ -494,3 +494,6 @@ export const indianUsers: User[] = [
     pastPerformance: generatePastPerformance(),
   },
 ];
+
+
+    
