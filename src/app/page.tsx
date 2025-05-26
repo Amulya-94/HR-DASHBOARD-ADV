@@ -11,9 +11,9 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Terminal, ChevronLeft, ChevronRight } from "lucide-react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"; // Added Avatar imports for skeleton
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"; 
 
-const ITEMS_PER_PAGE = 6; // Number of employee cards per page
+const ITEMS_PER_PAGE = 6; 
 
 export default function HomePage() {
   const [users, setUsers] = useState<User[]>([]);
@@ -29,9 +29,9 @@ export default function HomePage() {
     async function loadUsers() {
       setIsLoading(true);
       setError(null);
-      setCurrentPage(1); // Reset to first page on new data load/filter
+      setCurrentPage(1); 
       try {
-        // Fetch all users for client-side filtering and pagination
+        
         const fetchedUsers = await fetchUsers();
         setUsers(fetchedUsers);
       } catch (e) {
@@ -41,7 +41,7 @@ export default function HomePage() {
       }
     }
     loadUsers();
-  }, []); // Load all users once on component mount
+  }, []); 
 
   const globallyFilteredUsers = useMemo(() => {
     return users.filter((user) => {
@@ -62,7 +62,7 @@ export default function HomePage() {
     });
   }, [users, searchTerm, selectedDepartment, selectedRating]);
 
-  // Reset to page 1 when filters change
+  
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, selectedDepartment, selectedRating]);
@@ -105,7 +105,7 @@ export default function HomePage() {
       />
 
       {isLoading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
           {Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
             <Card key={index} className="flex flex-col">
               <CardHeader className="flex flex-row items-center gap-4 p-4">
@@ -140,7 +140,7 @@ export default function HomePage() {
           </Alert>
       ) : (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
             {paginatedUsers.map((user) => (
               <EmployeeCard key={user.id} user={user} />
             ))}
