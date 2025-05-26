@@ -13,6 +13,8 @@ import {
 import { DEPARTMENTS, PERFORMANCE_RATINGS } from "@/lib/constants";
 import { Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import React, { useEffect, useState } from "react"; // Added React, useEffect, useState
+import { Skeleton } from "@/components/ui/skeleton"; // Added Skeleton
 
 export const ALL_DEPARTMENTS_FILTER_VALUE = "__ALL_DEPARTMENTS__";
 export const ALL_RATINGS_FILTER_VALUE = "__ALL_RATINGS__";
@@ -22,7 +24,7 @@ interface SearchFilterControlsProps {
   setSearchTerm: Dispatch<SetStateAction<string>>;
   selectedDepartment: string;
   setSelectedDepartment: Dispatch<SetStateAction<string>>;
-  selectedRating: string; 
+  selectedRating: string;
   setSelectedRating: Dispatch<SetStateAction<string>>;
 }
 
@@ -34,6 +36,24 @@ export function SearchFilterControls({
   selectedRating,
   setSelectedRating,
 }: SearchFilterControlsProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="mb-8 p-6 bg-card rounded-lg shadow sticky top-16 z-40">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+          <Skeleton className="h-10 w-full" />
+          <Skeleton className="h-10 w-full" />
+          <Skeleton className="h-10 w-full" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="mb-8 p-6 bg-card rounded-lg shadow sticky top-16 z-40"> {/* Adjusted top for header height */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
