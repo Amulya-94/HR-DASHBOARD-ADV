@@ -42,7 +42,8 @@ export function SearchFilterControls({
     setMounted(true);
   }, []);
 
-  const commonDivClasses = "mb-8 p-6 bg-card rounded-lg shadow sticky top-16 z-40 w-full";
+  // commonDivClasses adjusted: p-6 to p-4, removed rounded-lg
+  const commonDivClasses = "mb-8 p-4 bg-card shadow sticky top-16 z-40 w-full";
 
   if (!mounted) {
     return (
@@ -57,7 +58,7 @@ export function SearchFilterControls({
   }
 
   return (
-    <div className={commonDivClasses}> {/* Adjusted top for header height, added w-full */}
+    <div className={commonDivClasses}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
