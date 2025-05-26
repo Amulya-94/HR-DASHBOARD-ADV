@@ -5,6 +5,7 @@ import { useBookmarks } from "@/hooks/use-bookmarks";
 import { EmployeeCard } from "@/components/employee-card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Bookmark } from "lucide-react";
+import { Badge } from "@/components/ui/badge"; // Added this import
 
 export default function BookmarksPage() {
   const { bookmarkedUsers } = useBookmarks();
