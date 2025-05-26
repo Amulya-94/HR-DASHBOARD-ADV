@@ -47,11 +47,11 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
           data-ai-hint="user avatar"
         />
         <div>
-          <CardTitle className="text-lg">{`${user.firstName} ${user.lastName}`}</CardTitle>
-          <CardDescription className="text-xs">{user.email}</CardDescription>
+          <CardTitle className="text-xl font-semibold">{`${user.firstName} ${user.lastName}`}</CardTitle>
+          <CardDescription className="text-sm text-muted-foreground mb-1">{user.email}</CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="p-4 space-y-3 flex-grow">
+      <CardContent className="p-5 space-y-3 flex-grow">
         <div className="flex justify-between items-center">
           <span className="text-sm font-medium">Department:</span>
           <Badge variant="secondary">{user.department}</Badge>
