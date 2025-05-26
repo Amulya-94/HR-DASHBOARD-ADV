@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
         hostname: 'robohash.org',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dummyjson.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
