@@ -42,8 +42,8 @@ export function SearchFilterControls({
     setMounted(true);
   }, []);
 
-  // commonDivClasses adjusted: p-6 to p-4, removed rounded-lg
-  const commonDivClasses = "mb-8 p-4 bg-card shadow sticky top-16 z-40 w-full";
+  // Removed sticky top-16 z-40
+  const commonDivClasses = "mb-8 p-4 bg-card shadow w-full";
 
   if (!mounted) {
     return (
