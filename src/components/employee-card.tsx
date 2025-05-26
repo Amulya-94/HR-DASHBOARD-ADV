@@ -50,7 +50,7 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
           <CardDescription className="text-sm text-muted-foreground mb-1">{user.email}</CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="p-5 space-y-3 flex-grow">
+      <CardContent className="p-4 space-y-3 flex-grow"> {/* Changed p-5 to p-4 */}
         <div className="flex justify-between items-center">
           <span className="text-sm font-medium">Department:</span>
           <Badge variant="secondary">{user.department}</Badge>
@@ -64,12 +64,12 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
           <StarRating rating={user.performanceRating} />
         </div>
         <div className="pt-2 border-t border-border/50 mt-3">
-          <p className="text-sm text-muted-foreground line-clamp-2 min-h-[calc(1.25rem*2)]"> {/* Assuming 1.25rem is line height for text-sm (text-sm in tailwind is 0.875rem font size, typically with 1.25rem line height) */}
+          <p className="text-sm text-muted-foreground line-clamp-2 min-h-[calc(1.25rem*2)]">
             {user.bio || "No bio available."}
           </p>
         </div>
       </CardContent>
-      <CardFooter className="p-4 flex items-center justify-evenly bg-secondary/30">
+      <CardFooter className="p-4 flex items-center justify-evenly border-t"> {/* Removed bg-secondary/30, added border-t */}
         <Button variant="default" size="sm" asChild>
           <Link href={`/employee/${user.id}`} className="flex items-center gap-1">
             <Eye size={16} /> View
