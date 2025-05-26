@@ -69,7 +69,7 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
           </p>
         </div>
       </CardContent>
-      <CardFooter className="p-4 flex items-center justify-between bg-secondary/30">
+      <CardFooter className="p-4 flex items-center justify-evenly bg-secondary/30">
         <Button variant="default" size="sm" asChild>
           <Link href={`/employee/${user.id}`} className="flex items-center gap-1">
             <Eye size={16} /> View
