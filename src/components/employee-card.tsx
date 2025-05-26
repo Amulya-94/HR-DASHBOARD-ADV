@@ -10,7 +10,7 @@ import { StarRating } from "@/components/star-rating";
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import { useToast } from "@/hooks/use-toast";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Bookmark, Trash2 } from "lucide-react"; // Removed Eye, TrendingUp
+import { Bookmark, Trash2 } from "lucide-react";
 
 interface EmployeeCardProps {
   user: User;
@@ -40,7 +40,7 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
 
   return (
     <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
-      <CardHeader className="flex flex-row items-center gap-4 p-4"> {/* Removed bg-secondary/30 */}
+      <CardHeader className="flex flex-row items-center gap-4 p-4">
         <Avatar className="h-16 w-16 border-2 border-primary">
           <AvatarFallback className="text-2xl font-semibold bg-primary/10 text-primary">
             {initials}
@@ -52,7 +52,7 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
         </div>
       </CardHeader>
       <CardContent className="p-4 space-y-3 flex-grow">
-        <div className="flex items-center gap-3"> {/* Changed to flex for department and age */}
+        <div className="flex items-center gap-3">
           <Badge variant="secondary">{user.department}</Badge>
           <span className="text-sm text-muted-foreground">Age: {user.age}</span>
         </div>
@@ -63,17 +63,17 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
           </p>
         </div>
       </CardContent>
-      <CardFooter className="p-4 flex items-center justify-start space-x-2 border-t"> {/* Changed to justify-start and space-x-2 */}
-        <Button variant="outline" size="sm" asChild> {/* Changed to outline, removed icon */}
+      <CardFooter className="p-4 flex items-center justify-center space-x-3 border-t">
+        <Button variant="outline" size="sm" asChild>
           <Link href={`/employee/${user.id}`}>
-            View
+            <span>View</span>
           </Link>
         </Button>
         <Button variant={bookmarked ? "destructive" : "outline"} size="sm" onClick={handleBookmarkToggle} className="flex items-center gap-1">
           {bookmarked ? <Trash2 size={16} /> : <Bookmark size={16} />}
           {bookmarked ? "Remove" : "Bookmark"}
         </Button>
-        <Button variant="default" size="sm" onClick={handlePromote}> {/* Changed to default, removed icon */}
+        <Button variant="default" size="sm" onClick={handlePromote}>
           Promote
         </Button>
       </CardFooter>
