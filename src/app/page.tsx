@@ -8,6 +8,7 @@ import { EmployeeCard } from "@/components/employee-card";
 import { SearchFilterControls } from "@/components/search-filter-controls";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"; // Added Card imports
 import { Terminal } from "lucide-react";
 
 export default function HomePage() {
