@@ -14,36 +14,26 @@ import { DEPARTMENTS, PERFORMANCE_RATINGS } from "@/lib/constants";
 import { Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+export const ALL_DEPARTMENTS_FILTER_VALUE = "__ALL_DEPARTMENTS__";
+export const ALL_RATINGS_FILTER_VALUE = "__ALL_RATINGS__";
+
 interface SearchFilterControlsProps {
-  searchTerm: string;
-  setSearchTerm: Dispatch<SetStateAction<string>>;
-  selectedDepartments: string[];
-  setSelectedDepartments: Dispatch<SetStateAction<string[]>>;
-  selectedRatings: number[];
-  setSelectedRatings: Dispatch<SetStateAction<number[]>>;
-}
-
-// This is a simplified version. Multi-select for ShadCN Select is not standard.
-// For a true multi-select, a more complex component (e.g. using Popover and Checkboxes) would be needed.
-// Here, we'll use single select for department and rating for simplicity of this exercise.
-// To implement multi-select: use `DropdownMenu` with `DropdownMenuCheckboxItem`.
-
-export function SearchFilterControls({
-  searchTerm,
-  setSearchTerm,
-  // selectedDepartments, setSelectedDepartments, // For multi-select
-  // selectedRatings, setSelectedRatings, // For multi-select
-  // Using single select for this example:
-  selectedDepartment, setSelectedDepartment,
-  selectedRating, setSelectedRating,
-}: {
   searchTerm: string;
   setSearchTerm: Dispatch<SetStateAction<string>>;
   selectedDepartment: string;
   setSelectedDepartment: Dispatch<SetStateAction<string>>;
-  selectedRating: string; // Storing as string due to Select component value
+  selectedRating: string; 
   setSelectedRating: Dispatch<SetStateAction<string>>;
-}) {
+}
+
+export function SearchFilterControls({
+  searchTerm,
+  setSearchTerm,
+  selectedDepartment,
+  setSelectedDepartment,
+  selectedRating,
+  setSelectedRating,
+}: SearchFilterControlsProps) {
   return (
     <div className="mb-8 p-6 bg-card rounded-lg shadow sticky top-16 z-40"> {/* Adjusted top for header height */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
@@ -73,7 +63,7 @@ export function SearchFilterControls({
             <SelectValue placeholder="Filter by Department" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Departments</SelectItem>
+            <SelectItem value={ALL_DEPARTMENTS_FILTER_VALUE}>All Departments</SelectItem>
             {DEPARTMENTS.map((dept) => (
               <SelectItem key={dept} value={dept}>
                 {dept}
@@ -87,7 +77,7 @@ export function SearchFilterControls({
             <SelectValue placeholder="Filter by Rating" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Ratings</SelectItem>
+            <SelectItem value={ALL_RATINGS_FILTER_VALUE}>All Ratings</SelectItem>
             {PERFORMANCE_RATINGS.map((rating) => (
               <SelectItem key={rating} value={String(rating)}>
                 {rating} Star{rating > 1 ? 's' : ''}

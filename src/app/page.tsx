@@ -5,10 +5,10 @@ import { useEffect, useState, useMemo } from "react";
 import type { User } from "@/lib/types";
 import { fetchUsers } from "@/lib/data";
 import { EmployeeCard } from "@/components/employee-card";
-import { SearchFilterControls } from "@/components/search-filter-controls";
+import { SearchFilterControls, ALL_DEPARTMENTS_FILTER_VALUE, ALL_RATINGS_FILTER_VALUE } from "@/components/search-filter-controls";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"; // Added Card imports
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Terminal } from "lucide-react";
 
 export default function HomePage() {
@@ -17,8 +17,8 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedDepartment, setSelectedDepartment] = useState("");
-  const [selectedRating, setSelectedRating] = useState(""); // string for Select component
+  const [selectedDepartment, setSelectedDepartment] = useState(ALL_DEPARTMENTS_FILTER_VALUE);
+  const [selectedRating, setSelectedRating] = useState(ALL_RATINGS_FILTER_VALUE);
 
   useEffect(() => {
     async function loadUsers() {
@@ -46,11 +46,10 @@ export default function HomePage() {
         user.department.toLowerCase().includes(term);
 
       const matchesDepartment =
-        !selectedDepartment || user.department === selectedDepartment;
+        selectedDepartment === ALL_DEPARTMENTS_FILTER_VALUE || user.department === selectedDepartment;
       
-      const ratingAsNumber = selectedRating ? parseInt(selectedRating, 10) : 0;
       const matchesRating =
-        !ratingAsNumber || user.performanceRating === ratingAsNumber;
+        selectedRating === ALL_RATINGS_FILTER_VALUE || user.performanceRating === parseInt(selectedRating, 10);
 
       return matchesSearchTerm && matchesDepartment && matchesRating;
     });
