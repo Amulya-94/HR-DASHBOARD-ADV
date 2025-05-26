@@ -2,7 +2,6 @@
 "use client";
 
 import type { User } from "@/lib/types";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { StarRating } from "@/components/star-rating";
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import { useToast } from "@/hooks/use-toast";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"; // Import Avatar components
 import { Bookmark, Eye, TrendingUp, Trash2 } from "lucide-react";
 
 interface EmployeeCardProps {
@@ -35,17 +35,16 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
     toast({ title: "Promotion Initiated", description: `Promotion process for ${user.firstName} ${user.lastName} has been noted.` });
   };
 
+  const initials = `${user.firstName[0] || ''}${user.lastName[0] || ''}`.toUpperCase();
+
   return (
     <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       <CardHeader className="flex flex-row items-center gap-4 p-4 bg-secondary/30">
-        <Image
-          src={user.image}
-          alt={`${user.firstName} ${user.lastName}`}
-          width={64}
-          height={64}
-          className="rounded-full border-2 border-primary"
-          data-ai-hint="user avatar"
-        />
+        <Avatar className="h-16 w-16 border-2 border-primary">
+          <AvatarFallback className="text-xl font-semibold bg-primary/10 text-primary">
+            {initials}
+          </AvatarFallback>
+        </Avatar>
         <div>
           <CardTitle className="text-xl font-semibold">{`${user.firstName} ${user.lastName}`}</CardTitle>
           <CardDescription className="text-sm text-muted-foreground mb-1">{user.email}</CardDescription>
@@ -64,6 +63,11 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
           <span className="text-sm font-medium">Performance:</span>
           <StarRating rating={user.performanceRating} />
         </div>
+        {user.bio && (
+          <p className="text-sm text-muted-foreground pt-2 border-t border-border/50 mt-3 line-clamp-2">
+            {user.bio}
+          </p>
+        )}
       </CardContent>
       <CardFooter className="p-4 flex items-center justify-between bg-secondary/30">
         <Button variant="default" size="sm" asChild>

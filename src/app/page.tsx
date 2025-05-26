@@ -11,6 +11,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Terminal, ChevronLeft, ChevronRight } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"; // Added Avatar imports for skeleton
 
 const ITEMS_PER_PAGE = 6; // Number of employee cards per page
 
@@ -104,7 +105,7 @@ export default function HomePage() {
       />
 
       {isLoading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
             <Card key={index} className="flex flex-col">
               <CardHeader className="flex flex-row items-center gap-4 p-4">
@@ -114,15 +115,17 @@ export default function HomePage() {
                   <Skeleton className="h-3 w-40" />
                 </div>
               </CardHeader>
-              <CardContent className="p-4 space-y-3 flex-grow">
+              <CardContent className="p-5 space-y-3 flex-grow">
                 <Skeleton className="h-4 w-full" />
                 <Skeleton className="h-4 w-3/4" />
                 <Skeleton className="h-4 w-1/2" />
+                 <Skeleton className="h-4 w-full mt-2" />
+                 <Skeleton className="h-4 w-5/6" />
               </CardContent>
-              <CardFooter className="p-4 grid grid-cols-3 gap-2">
-                <Skeleton className="h-9 w-full" />
-                <Skeleton className="h-9 w-full" />
-                <Skeleton className="h-9 w-full" />
+              <CardFooter className="p-4 flex items-center justify-between">
+                <Skeleton className="h-9 w-1/4" />
+                <Skeleton className="h-9 w-1/3" />
+                <Skeleton className="h-9 w-1/4" />
               </CardFooter>
             </Card>
           ))}
@@ -137,7 +140,7 @@ export default function HomePage() {
           </Alert>
       ) : (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {paginatedUsers.map((user) => (
               <EmployeeCard key={user.id} user={user} />
             ))}

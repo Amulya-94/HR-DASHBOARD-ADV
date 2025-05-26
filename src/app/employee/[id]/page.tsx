@@ -1,42 +1,41 @@
 
 import { fetchUserById } from "@/lib/data";
 import type { User } from "@/lib/types";
-import Image from "next/image";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"; // Import Avatar components
 import { StarRating } from "@/components/star-rating";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { User as UserIcon, Briefcase, MessageSquare, MapPin, Phone, Info } from "lucide-react"; // Renamed User from lucide to UserIcon
+import { User as UserIcon, Briefcase, MessageSquare, MapPin, Phone, Info } from "lucide-react";
 import { notFound } from "next/navigation";
+import Image from "next/image"; // Keep for project images
 
 function getPerformanceBadgeVariant(rating: number): "default" | "secondary" | "destructive" | "outline" {
   if (rating <= 2) return "destructive";
-  if (rating === 3) return "secondary"; // Using secondary for neutral, could be outline
-  return "default"; // Using default (primary color) for good ratings
+  if (rating === 3) return "secondary";
+  return "default";
 }
 
 export default async function EmployeeDetailPage({ params }: { params: { id: string } }) {
   const user = await fetchUserById(params.id);
 
   if (!user) {
-    notFound(); // Triggers the not-found.tsx or default Next.js 404 page
+    notFound();
   }
   
   const performanceBadgeVariant = getPerformanceBadgeVariant(user.performanceRating);
+  const initials = `${user.firstName[0] || ''}${user.lastName[0] || ''}`.toUpperCase();
 
   return (
     <div className="container mx-auto space-y-8">
       <Card className="overflow-hidden shadow-lg">
         <CardHeader className="bg-secondary/30 p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <Image
-            src={user.image}
-            alt={`${user.firstName} ${user.lastName}`}
-            width={128}
-            height={128}
-            className="rounded-full border-4 border-primary shadow-md"
-            data-ai-hint="user avatar large"
-          />
+          <Avatar className="h-32 w-32 border-4 border-primary shadow-md">
+            <AvatarFallback className="text-4xl font-semibold bg-primary/10 text-primary">
+              {initials}
+            </AvatarFallback>
+          </Avatar>
           <div className="flex-1">
             <CardTitle className="text-3xl font-bold">{`${user.firstName} ${user.lastName}`}</CardTitle>
             <CardDescription className="text-lg text-muted-foreground">{user.company.title} at {user.company.name}</CardDescription>
