@@ -12,7 +12,7 @@ import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { Terminal, ChevronLeft, ChevronRight } from "lucide-react";
 
-const ITEMS_PER_PAGE = 8; // Number of employee cards per page
+const ITEMS_PER_PAGE = 6; // Number of employee cards per page
 
 export default function HomePage() {
   const [users, setUsers] = useState<User[]>([]);
