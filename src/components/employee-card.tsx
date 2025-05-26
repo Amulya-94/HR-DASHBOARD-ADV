@@ -50,7 +50,7 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
           <CardDescription className="text-sm text-muted-foreground mb-1">{user.email}</CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="p-4 space-y-3 flex-grow"> {/* Changed p-5 to p-4 */}
+      <CardContent className="p-4 space-y-3 flex-grow">
         <div className="flex justify-between items-center">
           <span className="text-sm font-medium">Department:</span>
           <Badge variant="secondary">{user.department}</Badge>
@@ -69,7 +69,7 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
           </p>
         </div>
       </CardContent>
-      <CardFooter className="p-4 flex items-center justify-evenly border-t"> {/* Removed bg-secondary/30, added border-t */}
+      <CardFooter className="p-4 flex items-center justify-center space-x-3 border-t">
         <Button variant="default" size="sm" asChild>
           <Link href={`/employee/${user.id}`} className="flex items-center gap-1">
             <Eye size={16} /> View

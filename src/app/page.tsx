@@ -105,7 +105,7 @@ export default function HomePage() {
       />
 
       {isLoading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
             <Card key={index} className="flex flex-col">
               <CardHeader className="flex flex-row items-center gap-4 p-4">
@@ -140,7 +140,7 @@ export default function HomePage() {
           </Alert>
       ) : (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
             {paginatedUsers.map((user) => (
               <EmployeeCard key={user.id} user={user} />
             ))}
