@@ -1,5 +1,5 @@
 
-"use client"; // Make this a client component for search/filter interactivity
+"use client";
 
 import { useEffect, useState, useMemo } from "react";
 import type { User } from "@/lib/types";
@@ -9,7 +9,10 @@ import { SearchFilterControls, ALL_DEPARTMENTS_FILTER_VALUE, ALL_RATINGS_FILTER_
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
-import { Terminal } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Terminal, ChevronLeft, ChevronRight } from "lucide-react";
+
+const ITEMS_PER_PAGE = 8; // Number of employee cards per page
 
 export default function HomePage() {
   const [users, setUsers] = useState<User[]>([]);
@@ -19,13 +22,16 @@ export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState(ALL_DEPARTMENTS_FILTER_VALUE);
   const [selectedRating, setSelectedRating] = useState(ALL_RATINGS_FILTER_VALUE);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     async function loadUsers() {
       setIsLoading(true);
       setError(null);
+      setCurrentPage(1); // Reset to first page on new data load/filter
       try {
-        const fetchedUsers = await fetchUsers(20); // Fetch 20 users
+        // Fetch all users for client-side filtering and pagination
+        const fetchedUsers = await fetchUsers();
         setUsers(fetchedUsers);
       } catch (e) {
         setError(e instanceof Error ? e.message : "An unknown error occurred");
@@ -34,9 +40,9 @@ export default function HomePage() {
       }
     }
     loadUsers();
-  }, []);
+  }, []); // Load all users once on component mount
 
-  const filteredUsers = useMemo(() => {
+  const globallyFilteredUsers = useMemo(() => {
     return users.filter((user) => {
       const term = searchTerm.toLowerCase();
       const matchesSearchTerm =
@@ -54,6 +60,27 @@ export default function HomePage() {
       return matchesSearchTerm && matchesDepartment && matchesRating;
     });
   }, [users, searchTerm, selectedDepartment, selectedRating]);
+
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedDepartment, selectedRating]);
+
+  const totalPages = Math.ceil(globallyFilteredUsers.length / ITEMS_PER_PAGE);
+
+  const paginatedUsers = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    return globallyFilteredUsers.slice(startIndex, endIndex);
+  }, [globallyFilteredUsers, currentPage]);
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  };
 
   if (error) {
     return (
@@ -78,7 +105,7 @@ export default function HomePage() {
 
       {isLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {Array.from({ length: 8 }).map((_, index) => (
+          {Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
             <Card key={index} className="flex flex-col">
               <CardHeader className="flex flex-row items-center gap-4 p-4">
                 <Skeleton className="h-16 w-16 rounded-full" />
@@ -100,7 +127,7 @@ export default function HomePage() {
             </Card>
           ))}
         </div>
-      ) : filteredUsers.length === 0 ? (
+      ) : paginatedUsers.length === 0 ? (
          <Alert className="mt-8">
             <Terminal className="h-4 w-4" />
             <AlertTitle>No Employees Found</AlertTitle>
@@ -109,11 +136,36 @@ export default function HomePage() {
             </AlertDescription>
           </Alert>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredUsers.map((user) => (
-            <EmployeeCard key={user.id} user={user} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {paginatedUsers.map((user) => (
+              <EmployeeCard key={user.id} user={user} />
+            ))}
+          </div>
+          {totalPages > 1 && (
+            <div className="mt-8 flex justify-center items-center space-x-4">
+              <Button
+                variant="outline"
+                onClick={handlePreviousPage}
+                disabled={currentPage === 1}
+              >
+                <ChevronLeft className="h-4 w-4 mr-2" />
+                Previous
+              </Button>
+              <span className="text-sm text-muted-foreground">
+                Page {currentPage} of {totalPages}
+              </span>
+              <Button
+                variant="outline"
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+              >
+                Next
+                <ChevronRight className="h-4 w-4 ml-2" />
+              </Button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

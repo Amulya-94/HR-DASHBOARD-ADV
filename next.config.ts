@@ -19,16 +19,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'robohash.org',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'dummyjson.com',
+        hostname: 'robohash.org', // Kept in case it's used by other parts or future mock data
         port: '',
         pathname: '/**',
       }
+      // Removed dummyjson.com as it's no longer the primary source for images
     ],
   },
 };
