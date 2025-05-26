@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { StarRating } from "@/components/star-rating";
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import { useToast } from "@/hooks/use-toast";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"; // Import Avatar components
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Bookmark, Eye, TrendingUp, Trash2 } from "lucide-react";
 
 interface EmployeeCardProps {
@@ -38,10 +38,10 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
   const initials = `${user.firstName[0] || ''}${user.lastName[0] || ''}`.toUpperCase();
 
   return (
-    <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
       <CardHeader className="flex flex-row items-center gap-4 p-4 bg-secondary/30">
         <Avatar className="h-16 w-16 border-2 border-primary">
-          <AvatarFallback className="text-xl font-semibold bg-primary/10 text-primary">
+          <AvatarFallback className="text-2xl font-semibold bg-primary/10 text-primary">
             {initials}
           </AvatarFallback>
         </Avatar>
@@ -63,11 +63,11 @@ export function EmployeeCard({ user }: EmployeeCardProps) {
           <span className="text-sm font-medium">Performance:</span>
           <StarRating rating={user.performanceRating} />
         </div>
-        {user.bio && (
-          <p className="text-sm text-muted-foreground pt-2 border-t border-border/50 mt-3 line-clamp-2">
-            {user.bio}
+        <div className="pt-2 border-t border-border/50 mt-3">
+          <p className="text-sm text-muted-foreground line-clamp-2 min-h-[calc(1.25rem*2)]"> {/* Assuming 1.25rem is line height for text-sm (text-sm in tailwind is 0.875rem font size, typically with 1.25rem line height) */}
+            {user.bio || "No bio available."}
           </p>
-        )}
+        </div>
       </CardContent>
       <CardFooter className="p-4 flex items-center justify-between bg-secondary/30">
         <Button variant="default" size="sm" asChild>
