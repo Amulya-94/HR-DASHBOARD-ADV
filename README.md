@@ -36,7 +36,7 @@ HR Central is a modern, interactive dashboard designed to help HR professionals 
 
 ### Prerequisites
 
--   [Node.js](https://nodejs.org/) (version 18.x or higher is recommended)
+-   [Next.js](https://nodejs.org/) (version 18.x or higher is recommended)
 -   [npm](https://www.npmjs.com/) (which comes with Node.js) or [yarn](https://yarnpkg.com/)
 
 ### Installation
